@@ -10,7 +10,7 @@ import UIKit
 
 struct PokemonAPIClient {
     
-    static func getPokemon(completion: @escaping (Result<[PokemonDataLoad], AppError>) -> ()) {
+    static func getPokemon(completion: @escaping (Result<[Cards], AppError>) -> ()) {
         
         let endPointURL = "https://api.pokemontcg.io/v1/cards?from=0&to=100"
         
@@ -29,9 +29,9 @@ struct PokemonAPIClient {
                 completion(.failure(appError))
             case .success(let data):
                 do {
-                let pokemonResults = try JSONDecoder().decode([PokemonDataLoad].self, from: data)
+                let pokemonResults = try JSONDecoder().decode(PokemonDataLoad.self, from: data)
                     
-                    completion(.success(pokemonResults))
+                    completion(.success(pokemonResults.cards))
                 }
                 catch {
                     completion(.failure(.decodingError(error)))

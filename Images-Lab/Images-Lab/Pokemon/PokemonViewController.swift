@@ -10,23 +10,61 @@ import UIKit
 
 class PokemonViewController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
+    var pokemon = [Cards]() {
+        didSet {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        tableView.dataSource = self
+        tableView.delegate = self
+        loadData()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func loadData() {
+        PokemonAPIClient.getPokemon { (result) in
+            
+            switch result{
+            case .failure(let appError):
+                print("appError: \(appError)")
+            case .success(let cards):
+                DispatchQueue.main.async {
+                    self.pokemon = cards
+                    dump(cards)
+                }
+            }
+        }
     }
-    */
 
 }
+
+extension PokemonViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return pokemon.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "pokeBall", for: indexPath)
+        
+        let selectedPoke = pokemon[indexPath.row]
+        
+        cell.textLabel?.text = selectedPoke.name
+        
+        return cell
+    }
+    
+}
+
