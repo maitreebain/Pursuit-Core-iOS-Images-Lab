@@ -21,12 +21,15 @@ class PokemonViewController: UIViewController {
         }
     }
     
+    var searchQuery = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.dataSource = self
         tableView.delegate = self
         loadData()
+        searchBarQuery()
     }
     
     
@@ -43,6 +46,20 @@ class PokemonViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    func searchBarQuery() {
+        pokemon = pokemon.filter{ (($0.types?.first?.description.contains(searchQuery.lowercased()))!) }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let pokemonDetailController = segue.destination as? PokemonDetailController,
+            let indexPath = tableView.indexPathForSelectedRow else {
+            fatalError("no segue found")
+        }
+        let selectedPokemon = pokemon[indexPath.row]
+        
+        pokemonDetailController.pokemon = selectedPokemon
     }
 
 }
@@ -68,3 +85,17 @@ extension PokemonViewController: UITableViewDataSource, UITableViewDelegate {
     
 }
 
+extension PokemonViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        if !searchText.isEmpty {
+            loadData()
+            searchBarQuery()
+            return
+        }
+        
+        searchQuery = searchText
+        
+    }
+}
