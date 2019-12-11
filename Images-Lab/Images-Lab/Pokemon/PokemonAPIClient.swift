@@ -7,3 +7,21 @@
 //
 
 import UIKit
+
+struct PokemonAPIClient {
+    
+    static func getPokemon(completion: @escaping (Result<[PokemonDataLoad], AppError>) -> ()) {
+        
+        let endPointURL = "https://api.pokemontcg.io/v1/cards?from=0&to=100"
+        
+        guard let url = URL(string: endPointURL) else {
+            completion(.failure(.badURL(endPointURL)))
+            return
+        }
+        
+        let request = URLRequest(url: url)
+        
+        
+    }
+    
+}
