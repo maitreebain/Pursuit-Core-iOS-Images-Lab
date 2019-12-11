@@ -21,7 +21,23 @@ struct PokemonAPIClient {
         
         let request = URLRequest(url: url)
         
-        
+        NetworkHelper.shared.performingDataTask(with: request) { (result) in
+            
+            
+            switch result {
+            case .failure(let appError):
+                completion(.failure(appError))
+            case .success(let data):
+                do {
+                let pokemonResults = try JSONDecoder().decode([PokemonDataLoad].self, from: data)
+                    
+                    completion(.success(pokemonResults))
+                }
+                catch {
+                    completion(.failure(.decodingError(error)))
+                }
+            }
+        }
     }
     
 }
