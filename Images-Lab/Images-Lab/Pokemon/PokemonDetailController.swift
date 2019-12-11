@@ -21,6 +21,7 @@ class PokemonDetailController: UIViewController {
         super.viewDidLoad()
         
         loadData()
+        navigationItem.title = pokemon?.name
     }
     
     func loadData() {
@@ -30,14 +31,30 @@ class PokemonDetailController: UIViewController {
         }
         
         weakness.text = "Weakness: \(String(describing: pokemonCard.weakness?.value))"
+        if pokemonCard.weakness == nil {
+            weakness.text = "Weakness: None"
+        }
         
-        for type in pokemonCard.types ?? [""] {
+        for type in pokemonCard.types ?? ["None"] {
             typeLabel.text = "Type: \(type)"
         }
         
         set.text = pokemonCard.set
         
-        
-        
+        ImageClient.getImage(for: pokemonCard.imageUrlHiRes ?? "") { [weak self] (result) in
+            
+            switch result {
+            case .failure:
+                DispatchQueue.main.async {
+                    self?.pokeImage.image = UIImage(systemName: "xmark")
+                    self?.view.backgroundColor = .brown
+                }
+            case .success(let image):
+                DispatchQueue.main.async {
+                    self?.pokeImage.image = image
+                    self?.view.backgroundColor = .darkGray
+                }
+            }
+        }
     }
 }
