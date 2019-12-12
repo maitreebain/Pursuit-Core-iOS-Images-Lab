@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		80386CB923A2DAFF002E5AAD /* ComicDataLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80386CB823A2DAFF002E5AAD /* ComicDataLoad.swift */; };
+		80386CBC23A2F3DE002E5AAD /* RandomUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80386CBB23A2F3DE002E5AAD /* RandomUsersViewController.swift */; };
+		80386CBE23A2F3EF002E5AAD /* RandomUserDataLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80386CBD23A2F3EF002E5AAD /* RandomUserDataLoad.swift */; };
+		80386CC023A2F43B002E5AAD /* RandomUsersAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80386CBF23A2F43B002E5AAD /* RandomUsersAPI.swift */; };
 		80E19C9423A176FC00D14F88 /* ComicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E19C9323A176FC00D14F88 /* ComicViewController.swift */; };
 		80E19C9723A1774700D14F88 /* PokemonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E19C9623A1774700D14F88 /* PokemonViewController.swift */; };
 		80E19C9923A1778D00D14F88 /* PokemonAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E19C9823A1778D00D14F88 /* PokemonAPIClient.swift */; };
@@ -37,6 +40,9 @@
 
 /* Begin PBXFileReference section */
 		80386CB823A2DAFF002E5AAD /* ComicDataLoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicDataLoad.swift; sourceTree = "<group>"; };
+		80386CBB23A2F3DE002E5AAD /* RandomUsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUsersViewController.swift; sourceTree = "<group>"; };
+		80386CBD23A2F3EF002E5AAD /* RandomUserDataLoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUserDataLoad.swift; sourceTree = "<group>"; };
+		80386CBF23A2F43B002E5AAD /* RandomUsersAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUsersAPI.swift; sourceTree = "<group>"; };
 		80E19C9323A176FC00D14F88 /* ComicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicViewController.swift; sourceTree = "<group>"; };
 		80E19C9623A1774700D14F88 /* PokemonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonViewController.swift; sourceTree = "<group>"; };
 		80E19C9823A1778D00D14F88 /* PokemonAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonAPIClient.swift; sourceTree = "<group>"; };
@@ -76,12 +82,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		80386CBA23A2F3A9002E5AAD /* Random Users */ = {
+			isa = PBXGroup;
+			children = (
+				80386CBB23A2F3DE002E5AAD /* RandomUsersViewController.swift */,
+				80386CBD23A2F3EF002E5AAD /* RandomUserDataLoad.swift */,
+				80386CBF23A2F43B002E5AAD /* RandomUsersAPI.swift */,
+			);
+			path = "Random Users";
+			sourceTree = "<group>";
+		};
 		80E19C9123A176CD00D14F88 /* Comics */ = {
 			isa = PBXGroup;
 			children = (
 				80E19C9323A176FC00D14F88 /* ComicViewController.swift */,
 				80386CB823A2DAFF002E5AAD /* ComicDataLoad.swift */,
 				80FC28FC23A055B60065302E /* ComicAPIClient.swift */,
+				80386CBA23A2F3A9002E5AAD /* Random Users */,
 			);
 			path = Comics;
 			sourceTree = "<group>";
@@ -254,7 +271,10 @@
 				80E19C9923A1778D00D14F88 /* PokemonAPIClient.swift in Sources */,
 				80FC28DB23A052110065302E /* AppDelegate.swift in Sources */,
 				80FC28DD23A052110065302E /* SceneDelegate.swift in Sources */,
+				80386CBE23A2F3EF002E5AAD /* RandomUserDataLoad.swift in Sources */,
+				80386CBC23A2F3DE002E5AAD /* RandomUsersViewController.swift in Sources */,
 				80386CB923A2DAFF002E5AAD /* ComicDataLoad.swift in Sources */,
+				80386CC023A2F43B002E5AAD /* RandomUsersAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
