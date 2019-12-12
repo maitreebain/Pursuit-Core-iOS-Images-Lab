@@ -14,14 +14,7 @@ struct PokemonAPIClient {
         
         let endPointURL = "https://api.pokemontcg.io/v1/cards?from=0&to=100"
         
-        guard let url = URL(string: endPointURL) else {
-            completion(.failure(.badURL(endPointURL)))
-            return
-        }
-        
-        let request = URLRequest(url: url)
-        
-        NetworkHelper.shared.performingDataTask(with: request) { (result) in
+        NetworkHelper.shared.performingDataTask(with: endPointURL) { (result) in
             
             
             switch result {

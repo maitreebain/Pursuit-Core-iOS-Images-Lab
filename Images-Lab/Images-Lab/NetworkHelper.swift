@@ -18,10 +18,16 @@ class NetworkHelper {
         session = URLSession(configuration: .default)
     }
     
-    func performingDataTask(with request: URLRequest, completion: @escaping (Result<Data, AppError>) -> ()) {
+    func performingDataTask(with urlString: String, completion: @escaping (Result<Data, AppError>) -> ()) {
+        
+        guard let url = URL(string: urlString) else {
+            completion(.failure(.badURL(urlString)))
+            return
+        }
         
         
-        let dataTask = session.dataTask(with: request) { (data, response, error) in
+        
+        let dataTask = session.dataTask(with: url) { (data, response, error) in
             
             if let error = error {
                 completion(.failure(.networkClientError(error)))

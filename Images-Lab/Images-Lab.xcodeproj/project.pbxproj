@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		80386CB923A2DAFF002E5AAD /* ComicDataLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80386CB823A2DAFF002E5AAD /* ComicDataLoad.swift */; };
 		80E19C9423A176FC00D14F88 /* ComicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E19C9323A176FC00D14F88 /* ComicViewController.swift */; };
 		80E19C9723A1774700D14F88 /* PokemonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E19C9623A1774700D14F88 /* PokemonViewController.swift */; };
 		80E19C9923A1778D00D14F88 /* PokemonAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E19C9823A1778D00D14F88 /* PokemonAPIClient.swift */; };
@@ -20,7 +21,7 @@
 		80FC28E423A052120065302E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80FC28E323A052120065302E /* Assets.xcassets */; };
 		80FC28E723A052120065302E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80FC28E523A052120065302E /* LaunchScreen.storyboard */; };
 		80FC28F223A052120065302E /* Images_LabTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FC28F123A052120065302E /* Images_LabTests.swift */; };
-		80FC28FD23A055B60065302E /* ComicImageClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FC28FC23A055B60065302E /* ComicImageClient.swift */; };
+		80FC28FD23A055B60065302E /* ComicAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FC28FC23A055B60065302E /* ComicAPIClient.swift */; };
 		80FC28FF23A056A00065302E /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FC28FE23A056A00065302E /* AppError.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		80386CB823A2DAFF002E5AAD /* ComicDataLoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicDataLoad.swift; sourceTree = "<group>"; };
 		80E19C9323A176FC00D14F88 /* ComicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicViewController.swift; sourceTree = "<group>"; };
 		80E19C9623A1774700D14F88 /* PokemonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonViewController.swift; sourceTree = "<group>"; };
 		80E19C9823A1778D00D14F88 /* PokemonAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonAPIClient.swift; sourceTree = "<group>"; };
@@ -52,7 +54,7 @@
 		80FC28ED23A052120065302E /* Images-LabTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Images-LabTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		80FC28F123A052120065302E /* Images_LabTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images_LabTests.swift; sourceTree = "<group>"; };
 		80FC28F323A052120065302E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		80FC28FC23A055B60065302E /* ComicImageClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicImageClient.swift; sourceTree = "<group>"; };
+		80FC28FC23A055B60065302E /* ComicAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicAPIClient.swift; sourceTree = "<group>"; };
 		80FC28FE23A056A00065302E /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,7 +80,8 @@
 			isa = PBXGroup;
 			children = (
 				80E19C9323A176FC00D14F88 /* ComicViewController.swift */,
-				80FC28FC23A055B60065302E /* ComicImageClient.swift */,
+				80386CB823A2DAFF002E5AAD /* ComicDataLoad.swift */,
+				80FC28FC23A055B60065302E /* ComicAPIClient.swift */,
 			);
 			path = Comics;
 			sourceTree = "<group>";
@@ -240,7 +243,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80FC28FD23A055B60065302E /* ComicImageClient.swift in Sources */,
+				80FC28FD23A055B60065302E /* ComicAPIClient.swift in Sources */,
 				80E19CA123A19DCD00D14F88 /* ImageClient.swift in Sources */,
 				80E19C9D23A1851500D14F88 /* NetworkHelper.swift in Sources */,
 				80FC28FF23A056A00065302E /* AppError.swift in Sources */,
@@ -251,6 +254,7 @@
 				80E19C9923A1778D00D14F88 /* PokemonAPIClient.swift in Sources */,
 				80FC28DB23A052110065302E /* AppDelegate.swift in Sources */,
 				80FC28DD23A052110065302E /* SceneDelegate.swift in Sources */,
+				80386CB923A2DAFF002E5AAD /* ComicDataLoad.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
