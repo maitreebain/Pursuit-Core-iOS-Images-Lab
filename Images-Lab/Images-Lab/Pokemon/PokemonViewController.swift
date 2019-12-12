@@ -20,14 +20,19 @@ class PokemonViewController: UIViewController {
             }
         }
     }
-    
-    var searchQuery = ""
+
+    var searchQuery = "" {
+        didSet {
+                self.searchBarQuery()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.dataSource = self
         tableView.delegate = self
+        searchBar.delegate = self
         loadData()
         searchBarQuery()
     }
@@ -42,14 +47,16 @@ class PokemonViewController: UIViewController {
             case .success(let cards):
                 DispatchQueue.main.async {
                     self.pokemon = cards
-                    dump(cards)
+//                    dump(cards)
                 }
             }
         }
     }
     
     func searchBarQuery() {
-        pokemon = pokemon.filter{ (($0.types?.first?.description.contains(searchQuery.lowercased()))!) }
+        print(searchQuery.lowercased())
+        print("here \(searchQuery) thing")
+        pokemon = pokemon.filter{ (($0.types?.first?.lowercased().contains(searchQuery.lowercased()) ?? false)) }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -87,15 +94,19 @@ extension PokemonViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension PokemonViewController: UISearchBarDelegate {
     
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        if !searchText.isEmpty {
+        if searchText.isEmpty {
             loadData()
-            searchBarQuery()
             return
         }
         
-        searchQuery = searchText
-        
+        print(searchText)
+        searchQuery = searchText.lowercased()
+
     }
 }

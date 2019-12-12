@@ -101,7 +101,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Pokémon" id="oKe-JB-ga8"/>
                     <connections>
-                        <outlet property="searchBar" destination="qt0-xt-UMR" id="2tC-yX-BEM"/>
+                        <outlet property="searchBar" destination="qt0-xt-UMR" id="SnN-4U-myB"/>
                         <outlet property="tableView" destination="e6X-RH-E89" id="5jo-mC-KOk"/>
                     </connections>
                 </viewController>
