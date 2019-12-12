@@ -65,11 +65,13 @@ class ComicViewController: UIViewController {
         loadData(comicNum: Int(sender.value))
     }
     
-    @IBAction func mostRecent(_ sender: Any) {
+    @IBAction func mostRecent(_ sender: UIButton) {
+        loadData(comicNum: Int(comicStepper.maximumValue))
     }
     
     
-    @IBAction func random(_ sender: Any) {
+    @IBAction func random(_ sender: UIButton) {
+        loadData(comicNum: .random(in: 0...Int(comicStepper.maximumValue)))
     }
 }
 
